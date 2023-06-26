@@ -4,6 +4,8 @@
 
 This documentation explains how to achieve network isolation within an Azure Virtual WAN/Hub environment using the Pulumi Azure Native SDK and the provided code.
 
+![Overview](./images/overview.png)
+
 ## Prerequisites
 
 Before you proceed, make sure you have the following:
