@@ -21,7 +21,7 @@ const hub = new VirtualHub('conn-hub', {
     }
   });
 
-  const blueRouteTable = new HubRouteTable('conn-hub-blue-route-table', {
+const blueRouteTable = new HubRouteTable('conn-hub-blue-route-table', {
     resourceGroupName: rg.name,
     virtualHubName: hub.name,
     routeTableName: 'conn-hub-blue-route-table',
