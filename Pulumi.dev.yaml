@@ -1,3 +1,5 @@
 encryptionsalt: v1:DRlPqxZC9uM=:v1:xM33SUJi6Gx0U9/4:KmARC63ZYUfzH2HXJ+VEvsusNhFHxA==
 config:
   azure-native:location: WestUS2
+  azure-native:subscriptionId: f517593b-b3a1-4143-bc6d-c71156fda094
+  azure-native:tenantId: 97fb2e3d-d978-44e1-bb74-0aa0109189b5
