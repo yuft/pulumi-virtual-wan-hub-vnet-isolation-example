@@ -14,7 +14,7 @@ import {
 } from "@pulumi/azure-native/network";
 import { Vm } from "./vm";
 import { KeyVault } from "./key-vault";
-import { output } from "@pulumi/pulumi";
+import { interpolate, output } from "@pulumi/pulumi";
 import { getClientConfig } from "@pulumi/azure-native/authorization";
 
 const clientConfig = output(getClientConfig());
@@ -295,9 +295,8 @@ const p2sVpnServerConfiguration = new VpnServerConfiguration("hub-vpn-config", {
   vpnAuthenticationTypes: [VpnAuthenticationType.AAD],
   aadAuthenticationParameters: {
     aadAudience: "41b23e61-6c1e-4545-b367-cd054e0ed4b4", // For Azure Public
-    aadIssuer: "https://sts.windows.net/97fb2e3d-d978-44e1-bb74-0aa0109189b5/",
-    aadTenant:
-      "https://login.microsoftonline.com/97fb2e3d-d978-44e1-bb74-0aa0109189b5/",
+    aadIssuer: interpolate`https://sts.windows.net/${tenantId}/`,
+    aadTenant: interpolate`https://login.microsoftonline.com/${tenantId}/`,
   },
 });
 
@@ -321,7 +320,7 @@ const hub1VpnGateway = new P2sVpnGateway("conn-blue-p2s-vpn-gateway", {
       enableInternetSecurity: false,
       routingConfiguration: {
         propagatedRouteTables: {
-          labels: ["default", "blue"],
+          labels: ["blue"],
         },
       },
     },
@@ -348,7 +347,7 @@ const hub2VpnGateway = new P2sVpnGateway("conn-green-p2s-vpn-gateway", {
       enableInternetSecurity: false,
       routingConfiguration: {
         propagatedRouteTables: {
-          labels: ["default", "green"],
+          labels: ["green"],
         },
       },
     },

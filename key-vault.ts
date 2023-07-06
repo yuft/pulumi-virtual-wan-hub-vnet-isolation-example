@@ -56,12 +56,12 @@ export class KeyVault {
       },
     });
 
-    new RoleAssignment(`${name}-kv-admin`, {
-      roleAssignmentName: new RandomUuid(`${name}-kv-admin`).result,
-      principalId: "736b2f4d-0d80-40fc-a3a0-0cbea5c15a73",
-      principalType: PrincipalType.User,
-      roleDefinitionId: interpolate`/subscriptions/${subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483`,
-      scope: keyVault.id,
-    });
+    // new RoleAssignment(`${name}-kv-admin`, {
+    //   roleAssignmentName: new RandomUuid(`${name}-kv-admin`).result,
+    //   principalId: "xxxxx-xxxx-xxx-xxx",
+    //   principalType: PrincipalType.User,
+    //   roleDefinitionId: interpolate`/subscriptions/${subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483`,
+    //   scope: keyVault.id,
+    // });
   }
 }
